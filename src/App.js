@@ -19,15 +19,14 @@ function App() {
     if (event.key === 'Enter') {
       axios.request(options).then((response) => {
         setData(response.data);
-        // console.log(response.data);
       });
       setLocation('');
     }
   };
 
   return (
-    <div className="App bg-gray-900 h-screen w-screen relative overflow-hidden flex flex-col justify-center items-center">
-      <div className="h-screen w-screen absolute"></div>
+    <div className="App bg-gray-900 h-screen w-screen relative overflow-hidden flex flex-col justify-center items-center font-visbyRoundCF">
+      <div className="h-screen w-screen absolute bg-image"></div>
       <Fade top>
         <div>
           <div className="mt-10 mb-10">
@@ -54,28 +53,28 @@ function App() {
           </div>
 
           <div className="text-white relative mb-40 w-96 text-right">
-            {data.location ? <p className="text-6xl">{data.location.name}</p> : <p className="text-6xl">Location</p>}
-            {data.current ? <p className="text-6xl">{data.current.temp_c}°C</p> : <p className="text-6xl">...°C</p>}
-            {data.current ? <p className="text-3xl">{data.current.temp_f}°F</p> : <p className="text-3xl">...°F</p>}
+            <p className="text-6xl">{data.location ? data.location.name : 'Location'}</p>
+            <p className="text-6xl font-visbyRoundCFBold">{data.location ? data.current.temp_c : '...'}°C</p>
+            <p className="text-3xl">{data.location ? data.current.temp_f : '...'}°F</p>
           </div>
 
           <div className="bg-white bg-opacity-5 relative z-2 rounded-xl shadow-5xl border border-r-0 border-b-0 border-opacity-5 backdrop-filter backdrop-blur-[2px] p-2 mb-20">
             <div className="text-white flex justify-evenly mx-auto p-2 w-full text-xl">
               <div className="text-left p-2">
                 <p className="text-base">Min-Temp</p>
-                {data.forecast ? <p className="text-xl">{data.forecast.forecastday[0].day.mintemp_c}°C</p> : <p className="text-xl">...°C</p>}
+                <p className="text-xl font-visbyRoundCFBold">{data.forecast ? data.forecast.forecastday[0].day.mintemp_c : '...'}°C</p>
               </div>
               <div className="text-center p-2">
                 <p className="text-base">Wind</p>
-                {data.current ? <p className="text-xl">{data.current.wind_kph} km/h</p> : <p className="text-xl">...km/h</p>}
+                <p className="text-xl font-visbyRoundCFBold">{data.current ? data.current.wind_kph : '...'} km/h</p>
               </div>
               <div className="text-center p-2">
                 <p className="text-base">Humidity</p>
-                {data.current ? <p className="text-xl">{data.current.humidity}%</p> : <p className="text-xl">...%</p>}
+                <p className="text-xl font-visbyRoundCFBold">{data.current ? data.current.humidity : '...'}%</p>
               </div>{' '}
               <div className="text-right p-2">
                 <p className="text-base">Max-Temp</p>
-                {data.forecast ? <p className="text-xl">{data.forecast.forecastday[0].day.maxtemp_c}°C</p> : <p className="text-xl">...°C</p>}
+                <p className="text-xl font-visbyRoundCFBold">{data.forecast ? data.forecast.forecastday[0].day.maxtemp_c : '...'}°C</p>
               </div>
             </div>
           </div>

@@ -5,6 +5,10 @@ module.exports = {
       boxShadow: {
         '5xl': '20px 20px 50px rgba(0,0,0,0.6)',
       },
+      fontFamily: {
+        visbyRoundCF: ['VisbyRoundCF'],
+        visbyRoundCFBold: ['VisbyRoundCFBold'],
+      },
     },
   },
   plugins: [],
